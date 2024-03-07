@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private MediaPlayer reproductor;
-    private ImageView imgPerfil, imgPlay, imgPause, imgStop, img1, img2, img3, img4, img5;
+    private ImageView imgPerfil, imgPlay, imgPause, imgStop, img1, img2, img3;
     public TextView titulo, cantante, descripcion;
     public String descripcion2;
     @Override
@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         animacion();
 
         //EventosListener
-        img1.setOnClickListener(new View.OnClickListener() {
+        imgPerfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(reproductor != null){
@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
                 descripcion.setText(descripcion2);
             }
         });
-        img2.setOnClickListener(new View.OnClickListener() {
+        img1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(reproductor != null){
@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
                 descripcion.setText(descripcion2);
             }
         });
-        img3.setOnClickListener(new View.OnClickListener() {
+        img2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(reproductor != null){
@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
                 descripcion.setText(descripcion2);
             }
         });
-        img4.setOnClickListener(new View.OnClickListener() {
+        img3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(reproductor != null){
