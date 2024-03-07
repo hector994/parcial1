@@ -15,7 +15,8 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     private MediaPlayer reproductor;
     private ImageView imgPerfil, imgPlay, imgPause, imgStop, img1, img2, img3, img4, img5;
-    private TextView titulo, cantante, descripcion;
+    public TextView titulo, cantante, descripcion;
+    public String descripcion2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,12 +49,13 @@ public class MainActivity extends AppCompatActivity {
                         reproductor = null;
                     }
                 }
-                reproductor = MediaPlayer.create(MainActivity.this, R.raw.killpop);
+                reproductor = MediaPlayer.create(MainActivity.this, R.raw.PlayerInC);
                 reproductor.start();
-                imgPerfil.setImageResource(R.drawable.img1);
-                titulo.setText("Killpop");
-                cantante.setText("Slipknot");
-                descripcion.setText("SLIPKNOT - KILLPOP");
+                imgPerfil.setImageResource(R.drawable.robin);
+                titulo.setText("Player in C");
+                cantante.setText("Robin Schulz");
+                descripcion2 = titulo+" - "+cantante;
+                descripcion.setText(descripcion2);
             }
         });
         img2.setOnClickListener(new View.OnClickListener() {
@@ -65,12 +67,13 @@ public class MainActivity extends AppCompatActivity {
                         reproductor = null;
                     }
                 }
-                reproductor = MediaPlayer.create(MainActivity.this, R.raw.paris);
+                reproductor = MediaPlayer.create(MainActivity.this, R.raw.QLONA);
                 reproductor.start();
-                imgPerfil.setImageResource(R.drawable.img2);
-                titulo.setText("Paris");
-                cantante.setText("$uicideBoys");
-                descripcion.setText("$UICIDEBOYS - PARIS");
+                imgPerfil.setImageResource(R.drawable.qlona);
+                titulo.setText("Qlona");
+                cantante.setText("KAROL G");
+                descripcion2 = titulo+" - "+cantante;
+                descripcion.setText(descripcion2);
             }
         });
         img3.setOnClickListener(new View.OnClickListener() {
@@ -82,12 +85,13 @@ public class MainActivity extends AppCompatActivity {
                         reproductor = null;
                     }
                 }
-                reproductor = MediaPlayer.create(MainActivity.this, R.raw.mercury);
+                reproductor = MediaPlayer.create(MainActivity.this, R.raw.EllaBailaSola);
                 reproductor.start();
-                imgPerfil.setImageResource(R.drawable.img3);
-                titulo.setText("Mercury");
-                cantante.setText("Ghostemane");
-                descripcion.setText("GHOSTEMANE - MERCURY");
+                imgPerfil.setImageResource(R.drawable.pluma);
+                titulo.setText("Ella baila sola");
+                cantante.setText("Eslabon Armado");
+                descripcion2 = titulo+" - "+cantante;
+                descripcion.setText(descripcion2);
             }
         });
         img4.setOnClickListener(new View.OnClickListener() {
@@ -99,31 +103,16 @@ public class MainActivity extends AppCompatActivity {
                         reproductor = null;
                     }
                 }
-                reproductor = MediaPlayer.create(MainActivity.this, R.raw.rockstart);
+                reproductor = MediaPlayer.create(MainActivity.this, R.raw.NoMeConoce);
                 reproductor.start();
-                imgPerfil.setImageResource(R.drawable.img4);
-                titulo.setText("Rockstart");
-                cantante.setText("Post Malone");
-                descripcion.setText("POST MALONE - ROCKSTART");
+                imgPerfil.setImageResource(R.drawable.bad);
+                titulo.setText("No me conoce");
+                cantante.setText("Jhayco");
+                descripcion2 = titulo+" - "+cantante;
+                descripcion.setText(descripcion2);
             }
         });
-        img5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(reproductor != null){
-                    if(reproductor.isPlaying()){
-                        reproductor.release();
-                        reproductor = null;
-                    }
-                }
-                reproductor = MediaPlayer.create(MainActivity.this, R.raw.engel);
-                reproductor.start();
-                imgPerfil.setImageResource(R.drawable.img5);
-                titulo.setText("Engel");
-                cantante.setText("Rammstein");
-                descripcion.setText("RAMMSTEIN - ENGEL");
-            }
-        });
+
         imgPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
