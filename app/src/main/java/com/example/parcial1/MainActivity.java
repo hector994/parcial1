@@ -8,29 +8,38 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private MediaPlayer reproductor;
-    private ImageView imgPerfil, imgPlay, imgPause, imgStop, img1, img2, img3;
+    private ImageView imgPerfil, img1, img2, img3;
+
+    private ImageButton imgPlay, imgP1, imgP2, imgP3;
     public TextView titulo, cantante, descripcion;
-    public String descripcion2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         imgPerfil = (ImageView) findViewById(R.id.imageView);
-        //imgPlay = (ImageView) findViewById(R.id.IvPlay);
-        //imgPause = (ImageView) findViewById(R.id.IvPause);
-        imgStop = (ImageView) findViewById(R.id.imageButton);
+        imgPlay = (ImageButton) findViewById(R.id.imageButton);
+
+        imgP1 = (ImageButton) findViewById(R.id.imageButton2);
+        imgP2 = (ImageButton) findViewById(R.id.imageButton3);
+        imgP3 = (ImageButton) findViewById(R.id.imageButton4);
 
         img1 = (ImageView) findViewById(R.id.imageView2);
         img2 = (ImageView) findViewById(R.id.imageView3);
         img3 = (ImageView) findViewById(R.id.imageView4);
 
+        imgPerfil.setImageResource(R.drawable.robin);
+        img1.setImageResource(R.drawable.qlona);
+        img2.setImageResource(R.drawable.pluma);
+        img3.setImageResource(R.drawable.bad);
 
         titulo = (TextView) findViewById(R.id.textView2);
         cantante = (TextView) findViewById(R.id.textView3);
@@ -40,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         animacion();
 
         //EventosListener
-        imgPerfil.setOnClickListener(new View.OnClickListener() {
+        imgPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(reproductor != null){
@@ -54,11 +63,11 @@ public class MainActivity extends AppCompatActivity {
                 imgPerfil.setImageResource(R.drawable.robin);
                 titulo.setText("Player in C");
                 cantante.setText("Robin Schulz");
-                descripcion2 = titulo+" - "+cantante;
-                descripcion.setText(descripcion2);
+                descripcion.setText("Player in C - Robin");
+
             }
         });
-        img1.setOnClickListener(new View.OnClickListener() {
+        imgP1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(reproductor != null){
@@ -72,11 +81,10 @@ public class MainActivity extends AppCompatActivity {
                 imgPerfil.setImageResource(R.drawable.qlona);
                 titulo.setText("Qlona");
                 cantante.setText("KAROL G");
-                descripcion2 = titulo+" - "+cantante;
-                descripcion.setText(descripcion2);
+                descripcion.setText("QLONA - Karol g");
             }
         });
-        img2.setOnClickListener(new View.OnClickListener() {
+        imgP2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(reproductor != null){
@@ -90,11 +98,10 @@ public class MainActivity extends AppCompatActivity {
                 imgPerfil.setImageResource(R.drawable.pluma);
                 titulo.setText("Ella baila sola");
                 cantante.setText("Eslabon Armado");
-                descripcion2 = titulo+" - "+cantante;
-                descripcion.setText(descripcion2);
+                descripcion.setText("Ella baila sola - Eslabon Armado");
             }
         });
-        img3.setOnClickListener(new View.OnClickListener() {
+        imgP3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(reproductor != null){
@@ -108,41 +115,48 @@ public class MainActivity extends AppCompatActivity {
                 imgPerfil.setImageResource(R.drawable.bad);
                 titulo.setText("No me conoce");
                 cantante.setText("Jhayco");
-                descripcion2 = titulo+" - "+cantante;
-                descripcion.setText(descripcion2);
+                descripcion.setText("no me conoce");
             }
         });
 
-        imgPlay.setOnClickListener(new View.OnClickListener() {
+        imgPerfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(reproductor != null){
-                    reproductor.start();
-                    imgStop.setVisibility(View.VISIBLE);
-                    imgPause.setVisibility(View.VISIBLE);
+                    reproductor.pause();
                 }else{
                     Toast.makeText(MainActivity.this, "No hay cancion en la lista", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-        imgStop.setOnClickListener(new View.OnClickListener() {
+        img1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(reproductor != null){
                     reproductor.seekTo(000);
-                    reproductor.pause();
-                    imgStop.setVisibility(View.INVISIBLE);
+                    reproductor.start();
                 }else{
                     Toast.makeText(MainActivity.this, "No hay cancion en la lista", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-        imgPause.setOnClickListener(new View.OnClickListener() {
+        img2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(reproductor != null){
-                    reproductor.pause();
-                    imgPause.setVisibility(View.INVISIBLE);
+                    reproductor.seekTo(000);
+                    reproductor.start();
+                }else{
+                    Toast.makeText(MainActivity.this, "No hay cancion en la lista", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        img3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(reproductor != null){
+                    reproductor.seekTo(000);
+                    reproductor.start();
                 }else{
                     Toast.makeText(MainActivity.this, "No hay cancion en la lista", Toast.LENGTH_SHORT).show();
                 }
