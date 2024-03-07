@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ImageButton imgPlay, imgP1, imgP2, imgP3;
     public TextView titulo, cantante, descripcion;
-
+    public int lengh;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,20 +50,31 @@ public class MainActivity extends AppCompatActivity {
 
         //EventosListener
         imgPlay.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
                 if(reproductor != null){
+
                     if(reproductor.isPlaying()){
-                        reproductor.release();
+                        reproductor.pause();
+                        lengh = reproductor.getCurrentPosition();
+                        //reproductor.release();
+                        //reproductor.getTimestamp();
+                        //reproductor = null;
+                        imgPlay.setImageResource(R.drawable.play);
                         reproductor = null;
                     }
-                }
+                } else{
+
                 reproductor = MediaPlayer.create(MainActivity.this, R.raw.playerinc);
+                reproductor.seekTo(lengh);
                 reproductor.start();
                 imgPerfil.setImageResource(R.drawable.robin);
                 titulo.setText("Player in C");
                 cantante.setText("Robin Schulz");
                 descripcion.setText("Player in C - Robin");
+                imgPlay.setImageResource(R.drawable.pause);
+                }
 
             }
         });
@@ -82,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
                 titulo.setText("Qlona");
                 cantante.setText("KAROL G");
                 descripcion.setText("QLONA - Karol g");
+                imgPlay.setImageResource(R.drawable.pause);
             }
         });
         imgP2.setOnClickListener(new View.OnClickListener() {
@@ -99,6 +111,7 @@ public class MainActivity extends AppCompatActivity {
                 titulo.setText("Ella baila sola");
                 cantante.setText("Eslabon Armado");
                 descripcion.setText("Ella baila sola - Eslabon Armado");
+                imgPlay.setImageResource(R.drawable.pause);
             }
         });
         imgP3.setOnClickListener(new View.OnClickListener() {
@@ -116,6 +129,7 @@ public class MainActivity extends AppCompatActivity {
                 titulo.setText("No me conoce");
                 cantante.setText("Jhayco");
                 descripcion.setText("no me conoce");
+                imgPlay.setImageResource(R.drawable.pause);
             }
         });
 
@@ -123,7 +137,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(reproductor != null){
-                    reproductor.pause();
+                    reproductor.stop();
+                    imgPlay.setImageResource(R.drawable.play);
                 }else{
                     Toast.makeText(MainActivity.this, "No hay cancion en la lista", Toast.LENGTH_SHORT).show();
                 }
