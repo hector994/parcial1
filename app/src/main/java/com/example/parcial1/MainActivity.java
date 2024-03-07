@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.LinearInterpolator;
+import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,19 +22,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         imgPerfil = (ImageView) findViewById(R.id.imageView);
-        imgPlay = (ImageView) findViewById(R.id.IvPlay);
-        imgPause = (ImageView) findViewById(R.id.IvPause);
-        imgStop = (ImageView) findViewById(R.id.IvStop);
+        //imgPlay = (ImageView) findViewById(R.id.IvPlay);
+        //imgPause = (ImageView) findViewById(R.id.IvPause);
+        imgStop = (ImageView) findViewById(R.id.imageButton);
 
-        img1 = (ImageView) findViewById(R.id.imgv1);
-        img2 = (ImageView) findViewById(R.id.imgv2);
-        img3 = (ImageView) findViewById(R.id.imgv3);
-        img4 = (ImageView) findViewById(R.id.imgv4);
-        img5 = (ImageView) findViewById(R.id.imgv5);
+        img1 = (ImageView) findViewById(R.id.imageView2);
+        img2 = (ImageView) findViewById(R.id.imageView3);
+        img3 = (ImageView) findViewById(R.id.imageView4);
 
-        titulo = (TextView) findViewById(R.id.tvTituloCancion);
-        cantante = (TextView) findViewById(R.id.tvCantante);
-        descripcion = (TextView) findViewById(R.id.tvDescripcionCancion);
+
+        titulo = (TextView) findViewById(R.id.textView2);
+        cantante = (TextView) findViewById(R.id.textView3);
+        descripcion = (TextView) findViewById(R.id.textView5);
 
         //Animacion de img
         animacion();
@@ -157,5 +159,23 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public void animacion(){
+        //Animación de rotación
+        RotateAnimation rotateAnimation = new RotateAnimation(
+                0f, 360f,
+                Animation.RELATIVE_TO_SELF, 0.5f,
+                Animation.RELATIVE_TO_SELF, 0.5f
+        );
+
+        //Configurar la animación
+        rotateAnimation.setInterpolator(new LinearInterpolator());
+        //Duración en milisegundos
+        rotateAnimation.setDuration(8000);
+        rotateAnimation.setRepeatCount(Animation.INFINITE);
+
+        //Iniciar  animación
+        imgPerfil.startAnimation(rotateAnimation);
     }
 }
