@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
                         reproductor = null;
                     }
                 }
-                reproductor = MediaPlayer.create(MainActivity.this, R.raw.PlayerInC);
+                reproductor = MediaPlayer.create(MainActivity.this, R.raw.playerinc);
                 reproductor.start();
                 imgPerfil.setImageResource(R.drawable.robin);
                 titulo.setText("Player in C");
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
                         reproductor = null;
                     }
                 }
-                reproductor = MediaPlayer.create(MainActivity.this, R.raw.QLONA);
+                reproductor = MediaPlayer.create(MainActivity.this, R.raw.qlona);
                 reproductor.start();
                 imgPerfil.setImageResource(R.drawable.qlona);
                 titulo.setText("Qlona");
@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
                         reproductor = null;
                     }
                 }
-                reproductor = MediaPlayer.create(MainActivity.this, R.raw.EllaBailaSola);
+                reproductor = MediaPlayer.create(MainActivity.this, R.raw.ellabailasola);
                 reproductor.start();
                 imgPerfil.setImageResource(R.drawable.pluma);
                 titulo.setText("Ella baila sola");
@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
                         reproductor = null;
                     }
                 }
-                reproductor = MediaPlayer.create(MainActivity.this, R.raw.NoMeConoce);
+                reproductor = MediaPlayer.create(MainActivity.this, R.raw.nomeconoce);
                 reproductor.start();
                 imgPerfil.setImageResource(R.drawable.bad);
                 titulo.setText("No me conoce");
